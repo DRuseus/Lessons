@@ -11,9 +11,9 @@ print(my_dict.get('Kirill'))
 # Добавление двух пар того же формата
 my_dict.update({'Pasani': True,
                 'Vache_rebyata': False})
-# Удаление пары
-del my_dict['Killreal']
-print(my_dict, '\n')
+# Удаление пары, вывод ее значения в консоль и вывод словаря "my_dict"
+del_key = my_dict.pop('Killreal')
+print('Вывод значения удаленной пары:', del_key, '\n', 'Вывод словаря "my_dict" после всех изменений:', my_dict)
 
 
 # Работа с множествами
