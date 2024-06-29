@@ -1,5 +1,4 @@
-
-def send_email(message, recipient, sender = 'univercity.help@gmail.com'):
+def send_email(message, recipient, *, sender='univercity.help@gmail.com'):
     # Проверка на отправку самому себе
     if sender == recipient:
         return print("Нельзя отправить письмо самому себе!")
@@ -21,15 +20,15 @@ def send_email(message, recipient, sender = 'univercity.help@gmail.com'):
 
     # Проверка окончания почты отправителя и получателя на наличие окончания из списка "end_list"
     for end in end_list:
-        if end[::-1] in mail_end_check_s[:4]:   # Окончание определяется здесь
+        if end[::-1] in mail_end_check_s[:4]:  # Окончание определяется здесь
             is_have_end_s = True
-        if end[::-1] in mail_end_check_r[:4]:   # Окончание определяется здесь
+        if end[::-1] in mail_end_check_r[:4]:  # Окончание определяется здесь
             is_have_end_r = True
-        if is_have_end_r and is_have_end_s:     # Проверка на досрочное нахождение нужных окончаний
+        if is_have_end_r and is_have_end_s:  # Проверка на досрочное нахождение нужных окончаний
             break
 
     # Если хоть у одной почты не найдётся нужного окончания, то функция завершится так
-    if is_have_end_r == False or is_have_end_s == False:
+    if not is_have_end_r or not is_have_end_s:
         return print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}')
 
     # Проверка на нестандартного отправителя
@@ -38,6 +37,7 @@ def send_email(message, recipient, sender = 'univercity.help@gmail.com'):
 
     # Если все проверки пройдены
     return print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
+
 
 send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
 send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
